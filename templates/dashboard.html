@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Student Marketplace</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .dashboard-container {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            gap: 2rem;
+        }
+
+        .sidebar {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            height: fit-content;
+        }
+
+        .sidebar h3 {
+            margin-bottom: 1rem;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar li {
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        .dashboard-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .section {
+            margin-bottom: 2rem;
+        }
+
+        .section h3 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .stat-box {
+            background: #ecf0f1;
+            padding: 1rem;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .stat-box h4 {
+            color: #7f8c8d;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-box .number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #27ae60;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>📚 Student Marketplace</h1>
+            </div>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/logout">Logout</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="dashboard-container">
+                <aside class="sidebar">
+                    <h3>Menu</h3>
+                    <ul>
+                        <li><a href="#overview">Overview</a></li>
+                        <li><a href="#listings">My Listings</a></li>
+                        <li><a href="#purchases">Purchases</a></li>
+                        <li><a href="#sales">Sales</a></li>
+                        <li><a href="#profile">Profile</a></li>
+                        <li><a href="#settings">Settings</a></li>
+                    </ul>
+                </aside>
+
+                <section class="dashboard-content">
+                    <div id="overview" class="section">
+                        <h3>Dashboard Overview</h3>
+                        <div class="stats">
+                            <div class="stat-box">
+                                <h4>Total Listings</h4>
+                                <div class="number">0</div>
+                            </div>
+                            <div class="stat-box">
+                                <h4>Total Sales</h4>
+                                <div class="number">$0</div>
+                            </div>
+                            <div class="stat-box">
+                                <h4>Pending Transactions</h4>
+                                <div class="number">0</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="listings" class="section">
+                        <h3>My Listings</h3>
+                        <button class="btn btn-primary">Create New Listing</button>
+                        <p style="margin-top: 1rem;">You haven't created any listings yet.</p>
+                    </div>
+
+                    <div id="purchases" class="section">
+                        <h3>My Purchases</h3>
+                        <p>No purchases yet.</p>
+                    </div>
+
+                    <div id="sales" class="section">
+                        <h3>My Sales</h3>
+                        <p>No sales yet.</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Student Marketplace. All rights reserved.</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
